@@ -9,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ry0n7")
 
 [node name="Header" type="Label" parent="."]
 layout_mode = 0
@@ -26,10 +27,10 @@ offset_bottom = 419.0
 
 [node name="Body" type="RichTextLabel" parent="EmailBox"]
 layout_mode = 0
-offset_left = 4.0
-offset_top = 62.0
-offset_right = 708.0
-offset_bottom = 414.0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 706.0
+offset_bottom = 355.0
 
 [node name="Buttons" type="HBoxContainer" parent="."]
 layout_mode = 0
@@ -55,13 +56,12 @@ offset_bottom = 431.0
 layout_mode = 0
 offset_left = 112.0
 offset_top = 425.0
-offset_right = 131.0
+offset_right = 209.0
 offset_bottom = 471.0
 
 [node name="BackBtn" type="Button" parent="."]
 layout_mode = 0
-offset_left = 30.0
-offset_top = 442.0
-offset_right = 38.0
-offset_bottom = 450.0
-script = ExtResource("1_ry0n7")
+offset_left = 12.0
+offset_top = 426.0
+offset_right = 98.0
+offset_bottom = 473.0

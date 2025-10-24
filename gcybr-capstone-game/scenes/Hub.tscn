@@ -21,7 +21,7 @@ offset_left = 580.0
 offset_top = 74.0
 offset_right = 914.0
 offset_bottom = 134.0
-text = "Hub"
+text = "Main Hub"
 
 [node name="Score" type="Label" parent="."]
 layout_mode = 0
@@ -38,7 +38,7 @@ offset_right = 206.0
 offset_bottom = 679.0
 text = "Back to Title"
 
-[node name="PhisingBtn" type="Button" parent="."]
+[node name="PhishingBtn" type="Button" parent="."]
 layout_direction = 2
 layout_mode = 0
 offset_left = 544.0

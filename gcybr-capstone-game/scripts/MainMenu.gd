@@ -1,7 +1,7 @@
-# res://scripts/MainMenu.gd
+
 extends Control
 
-const SCN_HUB := "res://scenes/Hub.tscn"  # ← COPY PATH EXACTLY from FileSystem (right-click → Copy Path)
+const SCN_HUB := "res://scenes/Hub.tscn" 
 
 @onready var start_btn: Button = $StartBtn
 @onready var quit_btn: Button  = $QuitBtn

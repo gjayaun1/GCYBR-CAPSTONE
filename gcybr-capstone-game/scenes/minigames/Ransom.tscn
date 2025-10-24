@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://ditgiu4fciw22"]
+[gd_scene load_steps=2 format=3 uid="uid://ditgiu4fciw22"]
+
+[ext_resource type="Script" uid="uid://b0fru30lqjab7" path="res://scripts/Ransom.gd" id="1_s3ecb"]
 
 [node name="Ransom" type="Control"]
 layout_mode = 3
@@ -7,35 +9,56 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_s3ecb")
 
 [node name="Header" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 447.0
+offset_top = 28.0
+offset_right = 504.0
+offset_bottom = 51.0
+text = "Header"
 
 [node name="Prompt" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 412.0
+offset_top = 115.0
+offset_right = 601.0
+offset_bottom = 213.0
+text = "Area for prompt"
 
 [node name="TimeBar" type="ProgressBar" parent="."]
 layout_mode = 0
-offset_left = 302.0
-offset_top = 337.0
-offset_right = 594.0
-offset_bottom = 364.0
+offset_left = 379.0
+offset_top = 331.0
+offset_right = 671.0
+offset_bottom = 358.0
 
 [node name="Feedback" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 338.0
+offset_top = 387.0
+offset_right = 994.0
+offset_bottom = 455.0
+text = "Nots sure what this is exactly gonna be yet."
 
 [node name="NextBtn" type="Button" parent="."]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 971.0
+offset_top = 408.0
+offset_right = 1051.0
+offset_bottom = 474.0
+text = "Next"
 
 [node name="BackBtn" type="Button" parent="."]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.074
+anchor_top = 0.528
+anchor_right = 0.074
+anchor_bottom = 0.528
+offset_left = -54.72
+offset_top = 37.839996
+offset_right = 23.279999
+offset_bottom = 99.84
+text = "Back"
