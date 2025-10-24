@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4nqe2mjnqlo2"]
+
+[ext_resource type="Script" uid="uid://tt7utatmbicl" path="res://scripts/MainMenu.gd" id="1_yqorp"]
+
+[sub_resource type="Theme" id="Theme_yqorp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0ykhv"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -2.0
+offset_right = -127.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yqorp")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+modulate = Color(0.8512112, 0.17817742, 0.31033227, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -42.0
+offset_right = 23.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(9.0221405, 4.0475407)
+theme_override_constants/separation = 22
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.0
+offset_top = -154.0
+offset_right = 941.0
+offset_bottom = -131.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_yqorp")
+text = "THIS IS THE MAIN MENU"
+label_settings = SubResource("LabelSettings_0ykhv")
+
+[node name="StartBtn" type="Button" parent="."]
+clip_contents = true
+layout_direction = 2
+layout_mode = 0
+offset_left = 477.0
+offset_top = 295.0
+offset_right = 695.0
+offset_bottom = 413.0
+text = "Start"
+
+[node name="QuitBtn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 478.0
+offset_top = 431.0
+offset_right = 700.0
+offset_bottom = 549.0
+text = "Quit"
