@@ -50,7 +50,8 @@ func _ready() -> void:
 	phish_btn.pressed.connect(func(): _answer(true))
 	legit_btn.pressed.connect(func(): _answer(false))
 	next_btn.pressed.connect(_next)
-	back_btn.pressed.connect(func(): get_tree().change_scene_to_file(SCN_HUB))
+	back_btn.pressed.connect(func(): Transition.change_scene("res://scenes/Hub.tscn"))
+
 
 	_show_current()
 
@@ -94,7 +95,7 @@ func _answer(guess_is_phish:bool) -> void:
 func _next() -> void:
 	index += 1
 	if index >= items.size():
-		get_tree().change_scene_to_file(SCN_HUB)
+		Transition.change_scene("res://scenes/Hub.tscn")
 	else:
 		_show_current()
 

@@ -40,7 +40,7 @@ func _ready() -> void:
 
 	# Wire buttons
 	next_btn.pressed.connect(_next_round)
-	back_btn.pressed.connect(func(): get_tree().change_scene_to_file(SCN_HUB))
+	back_btn.pressed.connect(func(): Transition.change_scene("res://scenes/Hub.tscn"))
 
 	# Input & RNG
 	set_process(true)
@@ -67,7 +67,7 @@ func _verify_nodes() -> bool:
 func _start_round() -> void:
 	round += 1
 	if round > ROUNDS:
-		get_tree().change_scene_to_file(SCN_HUB)
+		Transition.change_scene("res://scenes/Hub.tscn")
 		return
 
 	# Reset state

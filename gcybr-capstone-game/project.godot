@@ -14,10 +14,12 @@ config/name="GCYBR CAPSTONE GAME"
 run/main_scene="uid://c4nqe2mjnqlo2"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+run/autoload_on_startup=true
 
 [autoload]
 
 Game="*res://scripts/Game.gd"
+Transition="*res://scenes/Transition.tscn"
 
 [display]
 

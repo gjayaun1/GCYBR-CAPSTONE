@@ -37,7 +37,7 @@ func _ready() -> void:
 	check_btn.mouse_filter = Control.MOUSE_FILTER_STOP
 	field.text_submitted.connect(func(_t): _check())
 	check_btn.pressed.connect(_check)
-	back_btn.pressed.connect(func(): get_tree().change_scene_to_file(SCN_HUB))
+	back_btn.pressed.connect(func(): Transition.change_scene("res://scenes/Hub.tscn"))
 
 func _verify_nodes() -> bool:
 	var req := {
