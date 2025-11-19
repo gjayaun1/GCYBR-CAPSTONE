@@ -10,7 +10,7 @@ const SCN_MENU     := "res://scenes/MainMenu.tscn"
 @onready var password_btn: Button = _find_button("PasswordBtn")
 @onready var ransom_btn:   Button = _find_button("RansomBtn")
 @onready var back_btn:     Button = _find_button("BackBtn")
-@onready var score_label:  Label  = _find_label("Score")
+@onready var score_label:  Label  = _find_label("Score")  # reused as achievements label
 
 var debug_label: Label
 
@@ -44,14 +44,32 @@ func _ready() -> void:
 	ransom_btn.pressed.connect(func(): _go(SCN_RANSOM,   "Ransomware"))
 	back_btn.pressed.connect(func(): _go(SCN_MENU, "Back to Menu"))
 
-	if Engine.has_singleton("Game"):
-		Game.score_changed.connect(_update_score)
-		_update_score(Game.score)
-	else:
-		_update_score(0)
+	# --- ACHIEVEMENTS UI ---
+	# Game is an autoload, so we can just use it directly.
+	_update_achievements_label()
+	Game.achievement_unlocked.connect(_on_achievement_unlocked)
 
-func _update_score(v:int) -> void:
-	score_label.text = "Score: %d" % v
+
+func _update_achievements_label() -> void:
+	# Build a small summary string based on Game.achievements flags
+	var parts: Array[String] = []
+
+	var pw: bool = Game.achievements.get("password_master", false)
+	var ph: bool = Game.achievements.get("phishing_pro", false)
+	var ra: bool = Game.achievements.get("ransomware_hero", false)
+
+	parts.append("Password: " + ("✔" if pw else "—"))
+	parts.append("Phishing: " + ("✔" if ph else "—"))
+	parts.append("Ransomware: " + ("✔" if ra else "—"))
+
+	score_label.text = "Achievements: " + " | ".join(parts)
+
+
+func _on_achievement_unlocked(key: String) -> void:
+	_show("[Hub] Achievement unlocked: " + key)
+	_update_achievements_label()
+	# If you ever add a popup UI, call it here too.
+
 
 func _go(path:String, label:String) -> void:
 	_show("[Hub] Click: " + label)
