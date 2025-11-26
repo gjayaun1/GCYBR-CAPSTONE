@@ -62,3 +62,22 @@ offset_top = 37.839996
 offset_right = 23.279999
 offset_bottom = 99.84
 text = "Back"
+
+[node name="IntroPopup" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1112.0
+offset_bottom = 597.0
+
+[node name="VBox" type="VBoxContainer" parent="IntroPopup"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="IntroPopup/VBox"]
+layout_mode = 2
+
+[node name="Body" type="Label" parent="IntroPopup/VBox"]
+layout_mode = 2
+
+[node name="StartBtn" type="Button" parent="IntroPopup/VBox"]
+layout_mode = 2

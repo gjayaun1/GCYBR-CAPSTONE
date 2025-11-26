@@ -11,7 +11,12 @@ const SCN_HUB := "res://scenes/Hub.tscn"
 @onready var check_btn: Button   = $MainPanel/Margin/VBox/ContentRow/InputBox/CheckBtn
 @onready var feedback:  Label    = $MainPanel/Margin/VBox/ContentRow/InputBox/Feedback
 @onready var back_btn:  Button   = $BackBtn
-@onready var task_label: Label   = $MainPanel/Margin/VBox/ContentRow/InputBox/TaskLabel
+
+@onready var intro_popup:     Control = $IntroPopup
+@onready var intro_title:     Label   = $IntroPopup/VBox/Title
+@onready var intro_body:      Label   = $IntroPopup/VBox/Body
+@onready var intro_start_btn: Button  = $IntroPopup/VBox/StartBtn
+
 
 var debug_label: Label
 
@@ -33,7 +38,6 @@ func _ready() -> void:
 		_dump_tree_paths()
 		return
 
-	# Static UI text
 	header.text = "Password Builder"
 	rule1.text = "Rule 1: At least 8 characters."
 	rule2.text = "Rule 2: Include at least one number (0–9)."
@@ -51,6 +55,43 @@ func _ready() -> void:
 	check_btn.pressed.connect(_check)
 	back_btn.pressed.connect(_on_back_pressed)
 
+	_setup_intro_popup()
+	_show_intro(true)
+
+
+func _setup_intro_popup() -> void:
+	if intro_title:
+		intro_title.text = "Password Game – Overview"
+
+	if intro_body:
+		intro_body.text = (
+			"Goal: Learn what makes a strong vs weak password.\n\n" +
+			"In this activity you'll do two tasks:\n" +
+			" • First, create a STRONG password that follows all the rules.\n" +
+			" • Then, create a WEAK password that breaks at least one rule.\n\n" +
+			"For a strong password, focus on:\n" +
+			" • Length: at least 8 characters\n" +
+			" • Variety: include at least one number and one symbol\n" +
+			" • Avoid obvious stuff: no names, birthdays, or simple words like \"password\".\n"
+		)
+
+	if intro_start_btn:
+		intro_start_btn.text = "Got it – Start"
+		intro_start_btn.pressed.connect(_on_intro_start_pressed)
+
+
+func _show_intro(show: bool) -> void:
+	if intro_popup:
+		intro_popup.visible = show
+
+	var enabled := not show
+	field.editable = enabled
+	check_btn.disabled = not enabled
+	back_btn.disabled  = not enabled
+
+
+func _on_intro_start_pressed() -> void:
+	_show_intro(false)
 	_set_phase(Phase.STRONG)
 
 
@@ -79,29 +120,31 @@ func _set_phase(p: int) -> void:
 
 
 func _on_back_pressed() -> void:
-	Game.last_result = "quit"
+	if typeof(Game) != TYPE_NIL:
+		Game.last_result = "quit"
 	Transition.change_scene(SCN_HUB)
 
 
 func _verify_nodes() -> bool:
 	var req := {
-		"MainPanel/Margin/VBox/Header": header,
-		"RulesBox/Rule1": rule1,
-		"RulesBox/Rule2": rule2,
-		"RulesBox/Rule3": rule3,
-		"InputBox/Field": field,
-		"InputBox/CheckBtn": check_btn,
-		"InputBox/Feedback": feedback,
-		"BackBtn": back_btn
+		"Header": header,
+		"Rule1": rule1,
+		"Rule2": rule2,
+		"Rule3": rule3,
+		"Field": field,
+		"CheckBtn": check_btn,
+		"Feedback": feedback,
+		"BackBtn": back_btn,
+		"IntroPopup": intro_popup,
+		"IntroPopup/Title": intro_title,
+		"IntroPopup/Body": intro_body,
+		"IntroPopup/StartBtn": intro_start_btn,
 	}
-
 	for k in req.keys():
 		if req[k] == null:
 			_fail("Missing node: " + k + " (check names/paths in Password.tscn)")
 			return false
-
 	return true
-
 
 
 func _check() -> void:
@@ -121,37 +164,36 @@ func _check() -> void:
 	var is_strong := ok_len and ok_digit and ok_symbol
 
 	var misses: Array[String] = []
-
 	if not ok_len:
 		misses.append("at least 8 characters")
-
 	if not ok_digit:
 		misses.append("a number (0–9)")
-
 	if not ok_symbol:
 		misses.append("a symbol (" + SYMBOLS + ")")
 
 	match phase:
-
 		Phase.STRONG:
 			if is_strong:
 				strong_done = true
 				feedback.modulate = Color(0.7, 1.0, 0.7)
 				feedback.text = "Nice! That is a strong password.\n\n" + \
 				                "Next: create a WEAK password that breaks at least one rule."
-				Game.last_result = "strong_ok"
+				if typeof(Game) != TYPE_NIL:
+					Game.last_result = "strong_ok"
 				_set_phase(Phase.WEAK)
 			else:
 				feedback.modulate = Color(1.0, 0.7, 0.7)
 				feedback.text = "Not strong enough yet.\nMissing: " + ", ".join(misses) + "."
-				Game.last_result = "lose"
+				if typeof(Game) != TYPE_NIL:
+					Game.last_result = "lose"
 
 		Phase.WEAK:
 			if is_strong:
 				feedback.modulate = Color(1.0, 0.85, 0.6)
 				feedback.text = "This is still a strong password.\n" + \
 				                "For this task, make it WEAK by breaking at least one rule."
-				Game.last_result = "lose"
+				if typeof(Game) != TYPE_NIL:
+					Game.last_result = "lose"
 			else:
 				weak_done = true
 				_finish_success(misses)
@@ -169,13 +211,12 @@ func _finish_success(misses: Array[String]) -> void:
 	feedback.text = "Correct!\nThis is a WEAK password because it is missing: " + reason + ".\n\n" + \
 	                "You completed both tasks."
 
-	Game.unlock_achievement("password_master")
-	Game.last_result = "win"
+	if typeof(Game) != TYPE_NIL:
+		Game.unlock_achievement("password_master")
+		Game.last_result = "win"
 
 
-# --------------------------------------------------------------------
-# Helpers
-# --------------------------------------------------------------------
+# ---- helpers ----
 func _show(msg: String) -> void:
 	print(msg)
 	if debug_label:
