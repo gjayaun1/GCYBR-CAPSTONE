@@ -45,7 +45,7 @@ func _ready() -> void:
 
 	field.placeholder_text = "Type your password here…"
 
-	check_btn.text = "Check password"
+	check_btn.text = " "
 	back_btn.text  = "Back"
 
 	check_btn.disabled = false

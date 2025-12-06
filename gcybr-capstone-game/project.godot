@@ -33,4 +33,4 @@ version_control/autoload_on_startup=true
 [gui]
 
 theme/default_font_antialiasing=0
-theme/custom="res://CyberTheme.tres"
+theme/custom="uid://c0rigrsamjovi"

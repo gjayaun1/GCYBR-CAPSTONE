@@ -1,11 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4nqe2mjnqlo2"]
+[gd_scene load_steps=8 format=3 uid="uid://c4nqe2mjnqlo2"]
 
 [ext_resource type="Script" uid="uid://tt7utatmbicl" path="res://scripts/MainMenu.gd" id="1_yqorp"]
+[ext_resource type="FontFile" uid="uid://0wqm63j2wagk" path="res://ui/Font/Kenney Future.ttf" id="2_l72w3"]
+[ext_resource type="Texture2D" uid="uid://c5e80j00ubqc5" path="res://ui/RetroWindowsGUI/windows_98_background_in_1920x1080_by_adamv11_dehkuhv-pre.png" id="4_826wr"]
+[ext_resource type="Texture2D" uid="uid://c7hdbyvy73q1r" path="res://ui/Vector/Extra/panel_glass.svg" id="5_ucygd"]
 
 [sub_resource type="Theme" id="Theme_yqorp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0ykhv"]
+font = ExtResource("2_l72w3")
 font_size = 40
+
+[sub_resource type="Theme" id="Theme_0ykhv"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -14,11 +20,30 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 1.0
 offset_top = -2.0
-offset_right = -127.0
-offset_bottom = -74.0
+offset_right = -1.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yqorp")
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -100
+layout_mode = 0
+offset_left = 2.0
+offset_right = 1287.0
+offset_bottom = 720.0
+mouse_filter = 2
+texture = ExtResource("4_826wr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -50
+layout_mode = 0
+offset_left = 151.0
+offset_top = 58.0
+offset_right = 1104.0
+offset_bottom = 581.0
+mouse_filter = 2
+texture = ExtResource("5_ucygd")
 
 [node name="Label" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
@@ -42,20 +67,25 @@ Project by Jayaun Garrett"
 label_settings = SubResource("LabelSettings_0ykhv")
 horizontal_alignment = 1
 
-[node name="StartBtn" type="Button" parent="."]
+[node name="StartBtn" type="TextureButton" parent="."]
+z_index = 10
 clip_contents = true
 layout_direction = 2
 layout_mode = 0
-offset_left = 477.0
-offset_top = 295.0
-offset_right = 719.0
-offset_bottom = 375.0
-text = "Start"
+offset_left = 343.0
+offset_top = 356.0
+offset_right = 518.0
+offset_bottom = 497.0
+theme = SubResource("Theme_0ykhv")
+texture_normal = ExtResource("5_ucygd")
+stretch_mode = 0
 
-[node name="QuitBtn" type="Button" parent="."]
+[node name="QuitBtn" type="TextureButton" parent="."]
+z_index = 10
 layout_mode = 0
-offset_left = 474.0
-offset_top = 395.0
-offset_right = 713.0
-offset_bottom = 476.0
-text = "Quit"
+offset_left = 759.0
+offset_top = 356.0
+offset_right = 922.0
+offset_bottom = 497.0
+texture_normal = ExtResource("5_ucygd")
+stretch_mode = 0
