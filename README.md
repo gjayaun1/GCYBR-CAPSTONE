@@ -40,22 +40,70 @@ The app uses a simple **Main Menu → Hub → Minigames** flow and a global `Gam
 
 ---
 
-## Release notes
+#  Release Notes
 
-> What’s working in this submission
+##  What’s Working in This Submission
 
-- **Core flow:** Main Menu → Hub → Phishing / Password / Ransomware → Back to Hub
-- **Minigames:**
-  - **Phishing:** multiple prompts, correctness feedback, score updates
-  - **Password:** rule-based checker (length/digit/symbol), feedback with missing-rule hints
-  - **Ransomware:** timed reaction loop (3 rounds), keyboard input (P/B)
-- **Global score:** `Game.gd` autoload with `score_changed` signal; Hub label updates live
-- **Null-safety:** all scenes/scripts verify required nodes at runtime and show clear on-screen errors if something is misnamed
-- **Debug:** each scene prints minimal status to Output and a small on-screen label for quick diagnosis
+### **Core Flow**
+**Main Menu → Hub → Phishing / Password / Ransomware → Back to Hub**
 
-> Known issues
+### **Popups**
+All three minigames now include an **intro popup** explaining:
+- Goals  
+- Rules  
+- How to play  
 
-- No persistence (score resets on app restart)
-- Minimal UI/UX (no art theme, accessibility passes, or SFX)
-- No difficulty scaling or content authoring tools
-- Limited phishing/password content sets (seed data only)
+### **Achievements (Autoload + Persistence)**
+Three unlockable achievements:
+- **`password_master`**
+- **`phishing_pro`**
+- **`ransomware_hero`**
+
+Achievements now **persist using `ConfigFile`** and display on the Hub.
+
+### **Minigames**
+
+#### **Phishing**
+- Intro popup  
+- Multiple prompts  
+- Correctness feedback  
+- Achievement unlock  
+
+#### **Password**
+- Two-phase **strong/weak** system  
+- Rule-based checking (length / digit / symbol)  
+- Detailed feedback  
+- Achievement unlock  
+
+#### **Ransomware (Redesigned)**
+- Multi-step ransomware-response simulation  
+  - Press **D → B → S** before timer expires  
+- Intro popup  
+- Achievement unlock  
+
+### **Global Systems**
+- `Game.gd` autoload manages:
+  - Achievement tracking  
+  - Persistence  
+  - Score (legacy)  
+  - Last-result state  
+- Hub shows achievement progress  
+
+### **Null-Safety**
+- All scenes/scripts verify required nodes at runtime  
+- Automatically dumps scene tree if something is misnamed  
+
+### **Debug Tools**
+- Each scene prints status to Output  
+- On-screen debug label for fast diagnostics  
+
+---
+
+##  Known Issues
+
+- Score system is **legacy** and mostly unused after switching to achievements  
+- UI/UX still minimal (no custom theme, icons, animations, SFX)  
+- Ransomware game has minimal visual feedback  
+- Limited phishing/password content sets (seed-only)  
+
+---
