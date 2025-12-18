@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4nqe2mjnqlo2"]
+[gd_scene load_steps=10 format=3 uid="uid://c4nqe2mjnqlo2"]
 
 [ext_resource type="Script" uid="uid://tt7utatmbicl" path="res://scripts/MainMenu.gd" id="1_yqorp"]
+[ext_resource type="Texture2D" uid="uid://cccpsx5inragv" path="res://ui/PNG/Window02.png" id="2_826wr"]
 [ext_resource type="FontFile" uid="uid://0wqm63j2wagk" path="res://ui/Font/Kenney Future.ttf" id="2_l72w3"]
-[ext_resource type="Texture2D" uid="uid://c5e80j00ubqc5" path="res://ui/RetroWindowsGUI/windows_98_background_in_1920x1080_by_adamv11_dehkuhv-pre.png" id="4_826wr"]
-[ext_resource type="Texture2D" uid="uid://c7hdbyvy73q1r" path="res://ui/Vector/Extra/panel_glass.svg" id="5_ucygd"]
+[ext_resource type="Texture2D" uid="uid://bsl2l5fc1n7ht" path="res://ui/PNG/Window03.png" id="3_ucygd"]
+[ext_resource type="Texture2D" uid="uid://bkga7pca6uk1t" path="res://ui/PNG/Btn_V08.png" id="5_826wr"]
+[ext_resource type="Texture2D" uid="uid://dlw33jhv5gb2g" path="res://ui/PNG/Btn_V11.png" id="6_ucygd"]
 
 [sub_resource type="Theme" id="Theme_yqorp"]
 
@@ -33,17 +35,18 @@ offset_left = 2.0
 offset_right = 1287.0
 offset_bottom = 720.0
 mouse_filter = 2
-texture = ExtResource("4_826wr")
+texture = ExtResource("2_826wr")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 z_index = -50
 layout_mode = 0
-offset_left = 151.0
-offset_top = 58.0
-offset_right = 1104.0
-offset_bottom = 581.0
+offset_left = 167.0
+offset_top = -80.0
+offset_right = 1291.0
+offset_bottom = 723.0
 mouse_filter = 2
-texture = ExtResource("5_ucygd")
+texture = ExtResource("3_ucygd")
 
 [node name="Label" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
@@ -72,20 +75,18 @@ z_index = 10
 clip_contents = true
 layout_direction = 2
 layout_mode = 0
-offset_left = 343.0
-offset_top = 356.0
-offset_right = 518.0
-offset_bottom = 497.0
+offset_left = 478.0
+offset_top = 376.0
+offset_right = 843.0
+offset_bottom = 446.0
 theme = SubResource("Theme_0ykhv")
-texture_normal = ExtResource("5_ucygd")
-stretch_mode = 0
+texture_normal = ExtResource("5_826wr")
 
 [node name="QuitBtn" type="TextureButton" parent="."]
 z_index = 10
 layout_mode = 0
-offset_left = 759.0
-offset_top = 356.0
-offset_right = 922.0
-offset_bottom = 497.0
-texture_normal = ExtResource("5_ucygd")
-stretch_mode = 0
+offset_left = 482.0
+offset_top = 448.0
+offset_right = 847.0
+offset_bottom = 520.0
+texture_normal = ExtResource("6_ucygd")
