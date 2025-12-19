@@ -36,6 +36,17 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        
+      - name: Show workspace tree
+        run: |
+          pwd
+          echo "== top level =="
+          ls -la
+          echo "== tree (depth 4) =="
+          find . -maxdepth 4 -type d -print
+          echo "== index.html locations =="
+          find . -maxdepth 6 -type f -name "index.html" -print
+
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
