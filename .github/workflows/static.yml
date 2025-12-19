@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Deploy Doxygen docs to Pages
 
 on:
   push:
@@ -26,13 +26,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Debug to prove the folder exists on the runner
       - name: Debug paths
         run: |
           pwd
           ls -la
           ls -la docs || true
-          find docs -maxdepth 2 -type f -name "index.html" -print || true
+          ls -la docs/html || true
+          find docs -maxdepth 3 -type f -name "index.html" -print || true
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -40,7 +40,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs
+          path: docs/html
 
       - name: Deploy to GitHub Pages
         id: deployment
