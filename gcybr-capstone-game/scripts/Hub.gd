@@ -6,12 +6,12 @@ const SCN_PASSWORD := "res://scenes/minigames/Password.tscn"
 const SCN_RANSOM   := "res://scenes/minigames/Ransom.tscn"
 const SCN_MENU     := "res://scenes/MainMenu.tscn"
 
-@onready var phishing_btn: TextureButton = _find_button("PhishingBtn")
-@onready var password_btn: TextureButton = _find_button("PasswordBtn")
-@onready var ransom_btn:   TextureButton = _find_button("RansomBtn")
-@onready var back_btn:     TextureButton = _find_button("BackBtn")
+@onready var phishing_btn: Button = _find_button("PhishingBtn")
+@onready var password_btn: Button = _find_button("PasswordBtn")
+@onready var ransom_btn:   Button = _find_button("RansomBtn")
+@onready var back_btn:     Button = _find_button("BackBtn")
 @onready var ach_label:    Label  = _find_label("Score")  # reuse the old score label
-@onready var reset_btn: TextureButton = _find_button("ResetBtn")
+@onready var reset_btn: Button = _find_button("ResetBtn")
 
 
 var debug_label: Label
@@ -87,9 +87,9 @@ func _go(path: String, label: String) -> void:
 
 
 # ---------- helpers ----------
-func _find_button(name: String) -> TextureButton:
+func _find_button(name: String) -> Button:
 	var n := find_child(name, true, false)
-	return n if n is TextureButton else null
+	return n if n is Button else null
 
 
 func _find_label(name: String) -> Label:

@@ -1,4 +1,39 @@
-[gd_resource type="Theme" load_steps=0 format=3 uid="uid://c0rigrsamjovi"]
+[gd_resource type="Theme" load_steps=17 format=3 uid="uid://c0rigrsamjovi"]
+
+[ext_resource type="Texture2D" uid="uid://c75pd53ywjmrt" path="res://ui/RetroWindowsGUI/Windows_Button_Pressed_Outlined.png" id="1_to3j7"]
+[ext_resource type="Texture2D" uid="uid://dnneav6wbyq2j" path="res://ui/RetroWindowsGUI/Windows_Button_Inactive.png" id="2_4w4vl"]
+[ext_resource type="Texture2D" uid="uid://85iiipkju881" path="res://ui/kenney_ui-pack-space-expansion (1)/PNG/Extra/Default/bar_shadow_round_outline_small.png" id="2_38mm5"]
+[ext_resource type="Texture2D" uid="uid://cu3kttupwd5bc" path="res://ui/kenney_ui-pack-space-expansion (1)/Vector/Red/bar_round_small_square.svg" id="2_fn5r7"]
+[ext_resource type="Texture2D" uid="uid://y6c6ivxs84yx" path="res://ui/kenney_ui-pack-space-expansion (1)/Vector/Extra/bar_shadow_square_outline_large_r.svg" id="3_fn5r7"]
+[ext_resource type="Texture2D" uid="uid://cu5gpyxm7evlt" path="res://ui/kenney_ui-pack-space-expansion (1)/Vector/Extra/bar_shadow_round_outline_large.svg" id="3_to3j7"]
+[ext_resource type="Texture2D" uid="uid://1vyblgbcgqw0" path="res://ui/RetroWindowsGUI/Windows_Progress_Fill.png" id="4_4w4vl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hhxnk"]
+texture = ExtResource("1_to3j7")
+modulate_color = Color(0.69135684, 0.6913568, 0.69135684, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fn5r7"]
+texture = ExtResource("2_4w4vl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0s1he"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4w4vl"]
+texture = ExtResource("2_38mm5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d1mwh"]
+texture = ExtResource("4_4w4vl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p5360"]
+texture = ExtResource("3_to3j7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_38mm5"]
+texture = ExtResource("2_fn5r7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vu7cf"]
+texture = ExtResource("2_fn5r7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_to3j7"]
+texture = ExtResource("3_fn5r7")
 
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
@@ -23,10 +58,18 @@ Button/fonts/font = null
 Button/icons/icon = null
 Button/styles/disabled = null
 Button/styles/focus = null
-Button/styles/hover = null
-Button/styles/normal = null
+Button/styles/hover = SubResource("StyleBoxTexture_hhxnk")
+Button/styles/normal = SubResource("StyleBoxTexture_fn5r7")
 Button/styles/pressed = null
+Control/styles/normal = SubResource("StyleBoxTexture_0s1he")
+LineEdit/styles/normal = SubResource("StyleBoxTexture_4w4vl")
 MarginContainer/constants/margin_bottom = 0
 MarginContainer/constants/margin_left = 0
 MarginContainer/constants/margin_right = 0
 MarginContainer/constants/margin_top = 0
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_d1mwh")
+TextEdit/styles/normal = SubResource("StyleBoxTexture_p5360")
+VScrollBar/styles/scroll = SubResource("StyleBoxTexture_38mm5")
+VSlider/styles/grabber_area = SubResource("StyleBoxTexture_vu7cf")
+VSlider/styles/grabber_area_highlight = null
+VSlider/styles/slider = SubResource("StyleBoxTexture_to3j7")

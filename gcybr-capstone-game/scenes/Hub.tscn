@@ -1,11 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://b1y3i0kleeem6"]
+[gd_scene load_steps=8 format=3 uid="uid://b1y3i0kleeem6"]
 
 [ext_resource type="Script" uid="uid://ck0dhbpjlrny6" path="res://scripts/Hub.gd" id="1_8mbd6"]
-[ext_resource type="FontFile" uid="uid://drbhwtwuoykrx" path="res://ui/Font/Kenney Future Narrow.ttf" id="2_7f5op"]
-[ext_resource type="Texture2D" uid="uid://c5e80j00ubqc5" path="res://ui/RetroWindowsGUI/windows_98_background_in_1920x1080_by_adamv11_dehkuhv-pre.png" id="3_1t77w"]
-[ext_resource type="FontFile" uid="uid://0wqm63j2wagk" path="res://ui/Font/Kenney Future.ttf" id="3_hnc56"]
-[ext_resource type="Texture2D" uid="uid://c7hdbyvy73q1r" path="res://ui/Vector/Extra/panel_glass.svg" id="3_tm630"]
-[ext_resource type="Texture2D" uid="uid://bkiak25vpkv5b" path="res://ui/RetroWindowsGUI/Window_Header.png" id="4_tm630"]
+[ext_resource type="FontFile" uid="uid://0wqm63j2wagk" path="res://ui/Font/Kenney Future.ttf" id="2_7f5op"]
+[ext_resource type="Texture2D" uid="uid://c5e80j00ubqc5" path="res://ui/RetroWindowsGUI/windows_98_background_in_1920x1080_by_adamv11_dehkuhv-pre.png" id="2_wi61l"]
+[ext_resource type="Texture2D" uid="uid://bkiak25vpkv5b" path="res://ui/RetroWindowsGUI/Window_Header.png" id="4_1t77w"]
 
 [sub_resource type="Theme" id="Theme_8mbd6"]
 Button/colors/font_color = Color(0, 0, 0, 1)
@@ -39,12 +37,10 @@ MarginContainer/constants/margin_right = 0
 MarginContainer/constants/margin_top = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_8mbd6"]
-font = ExtResource("2_7f5op")
 font_size = 50
 shadow_size = 20
 
 [sub_resource type="LabelSettings" id="LabelSettings_wi61l"]
-font = ExtResource("3_hnc56")
 font_size = 20
 
 [node name="Hub" type="Control"]
@@ -67,8 +63,33 @@ offset_left = 441.0
 offset_top = 132.0
 offset_right = 775.0
 offset_bottom = 192.0
+theme_override_fonts/font = ExtResource("2_7f5op")
 text = "MAIN HUB
 "
+label_settings = SubResource("LabelSettings_8mbd6")
+horizontal_alignment = 1
+
+[node name="MiniGLabal2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 382.0
+offset_right = 374.0
+offset_bottom = 449.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_7f5op")
+text = "OPTIONS"
+label_settings = SubResource("LabelSettings_8mbd6")
+horizontal_alignment = 1
+
+[node name="MiniGLabal" type="Label" parent="."]
+layout_mode = 0
+offset_left = 668.0
+offset_top = 373.0
+offset_right = 1116.0
+offset_bottom = 514.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_7f5op")
+text = "TO MINIGAMES"
 label_settings = SubResource("LabelSettings_8mbd6")
 horizontal_alignment = 1
 
@@ -78,53 +99,54 @@ offset_left = 235.28876
 offset_top = 105.587585
 offset_right = 1032.2888
 offset_bottom = 210.58759
+theme_override_fonts/font = ExtResource("2_7f5op")
 label_settings = SubResource("LabelSettings_wi61l")
 
-[node name="BackBtn" type="TextureButton" parent="."]
+[node name="BackBtn" type="Button" parent="."]
 layout_mode = 0
-offset_left = 160.0
-offset_top = 534.0
-offset_right = 308.0
-offset_bottom = 611.0
-texture_normal = ExtResource("3_tm630")
-stretch_mode = 0
+offset_left = 117.0
+offset_top = 526.0
+offset_right = 220.0
+offset_bottom = 580.0
+theme_override_fonts/font = ExtResource("2_7f5op")
+text = "Back"
 
-[node name="PhishingBtn" type="TextureButton" parent="."]
+[node name="PhishingBtn" type="Button" parent="."]
 layout_direction = 2
 layout_mode = 0
-offset_left = 534.0
-offset_top = 437.0
-offset_right = 686.0
-offset_bottom = 552.0
-texture_normal = ExtResource("3_tm630")
-stretch_mode = 0
+offset_left = 795.0
+offset_top = 574.0
+offset_right = 941.0
+offset_bottom = 621.0
+theme_override_fonts/font = ExtResource("2_7f5op")
+text = "Phising"
 
-[node name="PasswordBtn" type="TextureButton" parent="."]
+[node name="PasswordBtn" type="Button" parent="."]
 layout_mode = 0
-offset_left = 374.0
-offset_top = 436.0
-offset_right = 519.0
-offset_bottom = 550.0
-texture_normal = ExtResource("3_tm630")
-stretch_mode = 0
+offset_left = 633.0
+offset_top = 574.0
+offset_right = 776.0
+offset_bottom = 619.0
+theme_override_fonts/font = ExtResource("2_7f5op")
+text = "PASSWORD"
 
-[node name="RansomBtn" type="TextureButton" parent="."]
+[node name="RansomBtn" type="Button" parent="."]
 layout_mode = 0
-offset_left = 703.0
-offset_top = 430.0
-offset_right = 851.0
-offset_bottom = 555.0
-texture_normal = ExtResource("3_tm630")
-stretch_mode = 0
+offset_left = 961.0
+offset_top = 572.0
+offset_right = 1108.0
+offset_bottom = 621.0
+theme_override_fonts/font = ExtResource("2_7f5op")
+text = "RANSOMWARE"
 
-[node name="ResetBtn" type="TextureButton" parent="."]
+[node name="ResetBtn" type="Button" parent="."]
 layout_mode = 0
-offset_left = 907.0
-offset_top = 526.0
-offset_right = 1052.0
-offset_bottom = 599.0
-texture_normal = ExtResource("3_tm630")
-stretch_mode = 0
+offset_left = 237.0
+offset_top = 524.0
+offset_right = 341.0
+offset_bottom = 579.0
+theme_override_fonts/font = ExtResource("2_7f5op")
+text = "Reset"
 
 [node name="Background" type="TextureRect" parent="."]
 z_index = -100
@@ -133,14 +155,24 @@ offset_left = 2.0
 offset_right = 1287.0
 offset_bottom = 720.0
 mouse_filter = 2
-texture = ExtResource("3_1t77w")
+texture = ExtResource("2_wi61l")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+z_index = -50
+layout_mode = 0
+offset_left = 54.0
+offset_top = 328.0
+offset_right = 411.0
+offset_bottom = 617.0
+mouse_filter = 2
+texture = ExtResource("4_1t77w")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -50
 layout_mode = 0
-offset_left = 66.0
-offset_top = 16.0
-offset_right = 1144.0
-offset_bottom = 654.0
+offset_left = 614.0
+offset_top = 277.0
+offset_right = 1152.0
+offset_bottom = 708.0
 mouse_filter = 2
-texture = ExtResource("4_tm630")
+texture = ExtResource("4_1t77w")

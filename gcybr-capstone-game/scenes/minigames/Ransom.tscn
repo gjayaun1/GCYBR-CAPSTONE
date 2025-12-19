@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://ditgiu4fciw22"]
+[gd_scene load_steps=5 format=3 uid="uid://ditgiu4fciw22"]
 
 [ext_resource type="Script" uid="uid://b0fru30lqjab7" path="res://scripts/Ransom.gd" id="1_s3ecb"]
+[ext_resource type="Texture2D" uid="uid://dx181an6vddjq" path="res://ui/Wana_Decrypt0r_screenshot.png" id="2_y36hh"]
+[ext_resource type="FontFile" uid="uid://0wqm63j2wagk" path="res://ui/Font/Kenney Future.ttf" id="3_5wij0"]
+[ext_resource type="Texture2D" uid="uid://bkiak25vpkv5b" path="res://ui/RetroWindowsGUI/Window_Header.png" id="3_husj4"]
 
 [node name="Ransom" type="Control"]
 layout_mode = 3
@@ -11,43 +14,56 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s3ecb")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -100
+layout_mode = 0
+offset_left = 9.0
+offset_right = 1277.0
+offset_bottom = 717.0
+texture = ExtResource("2_y36hh")
+
 [node name="Header" type="Label" parent="."]
 layout_mode = 0
-offset_left = 447.0
-offset_top = 28.0
-offset_right = 504.0
-offset_bottom = 51.0
-text = "Header"
+offset_left = 903.0
+offset_top = 69.0
+offset_right = 1222.0
+offset_bottom = 203.0
+theme_override_fonts/font = ExtResource("3_5wij0")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Prompt" type="Label" parent="."]
 layout_mode = 0
-offset_left = 412.0
-offset_top = 115.0
-offset_right = 601.0
-offset_bottom = 213.0
-text = "Area for prompt"
+offset_left = 320.0
+offset_top = 102.0
+offset_right = 775.0
+offset_bottom = 260.0
+theme_override_fonts/font = ExtResource("3_5wij0")
+horizontal_alignment = 1
 
 [node name="TimeBar" type="ProgressBar" parent="."]
 layout_mode = 0
-offset_left = 379.0
+offset_left = 370.0
 offset_top = 331.0
-offset_right = 671.0
+offset_right = 722.0
 offset_bottom = 358.0
 
 [node name="Feedback" type="Label" parent="."]
 layout_mode = 0
-offset_left = 338.0
-offset_top = 387.0
-offset_right = 994.0
-offset_bottom = 455.0
-text = "Nots sure what this is exactly gonna be yet."
+offset_left = 871.0
+offset_top = 217.0
+offset_right = 1246.0
+offset_bottom = 384.0
 
 [node name="NextBtn" type="Button" parent="."]
 layout_mode = 0
-offset_left = 971.0
-offset_top = 408.0
-offset_right = 1051.0
-offset_bottom = 474.0
+offset_left = 691.0
+offset_top = 380.0
+offset_right = 771.0
+offset_bottom = 446.0
+theme_override_fonts/font = ExtResource("3_5wij0")
 text = "Next"
 
 [node name="BackBtn" type="Button" parent="."]
@@ -57,27 +73,57 @@ anchor_left = 0.074
 anchor_top = 0.528
 anchor_right = 0.074
 anchor_bottom = 0.528
-offset_left = -54.72
-offset_top = 37.839996
-offset_right = 23.279999
-offset_bottom = 99.84
+offset_left = 225.28
+offset_top = -3.1600037
+offset_right = 303.28
+offset_bottom = 58.839996
+theme_override_fonts/font = ExtResource("3_5wij0")
 text = "Back"
 
 [node name="IntroPopup" type="Panel" parent="."]
 layout_mode = 0
-offset_right = 1112.0
-offset_bottom = 597.0
+offset_right = 1281.0
+offset_bottom = 719.0
 
 [node name="VBox" type="VBoxContainer" parent="IntroPopup"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 189.0
+offset_top = 38.0
+offset_right = 1115.0
+offset_bottom = 591.0
 
 [node name="Title" type="Label" parent="IntroPopup/VBox"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5wij0")
+horizontal_alignment = 1
 
 [node name="Body" type="Label" parent="IntroPopup/VBox"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5wij0")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="StartBtn" type="Button" parent="IntroPopup/VBox"]
 layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+z_index = -50
+layout_mode = 0
+offset_left = 285.0
+offset_top = 69.0
+offset_right = 816.0
+offset_bottom = 469.0
+mouse_filter = 2
+texture = ExtResource("3_husj4")
+expand_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+z_index = -50
+layout_mode = 0
+offset_left = 857.0
+offset_top = 24.0
+offset_right = 1265.0
+offset_bottom = 402.0
+mouse_filter = 2
+texture = ExtResource("3_husj4")
+expand_mode = 2

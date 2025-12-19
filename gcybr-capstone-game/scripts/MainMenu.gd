@@ -3,8 +3,8 @@ extends Control
 
 const SCN_HUB := "res://scenes/Hub.tscn" 
 
-@onready var start_btn: TextureButton = $StartBtn
-@onready var quit_btn: TextureButton  = $QuitBtn
+@onready var start_btn: Button = $StartBtn
+@onready var quit_btn: Button  = $QuitBtn
 var debug_label: Label
 
 
